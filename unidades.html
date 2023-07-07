@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/661bf8cec7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/styles/style.css" type="text/css">
+    <script src="./assets/js/datatables.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link href="./assets/js/datatables/datatables.css" rel="stylesheet"/>
+    <script src="./assets/js/datatables/datatables.css"></script>
+
+    <title>Directorio</title>
+</head>
+<body>
+    <header>
+        <!-- Colocar Nav bar-->
+        
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="bg-dark col-auto col-md-3 col-lg-2 min-vh-100 d-flex flex-column justify-content sidebar-container">
+                    <div class="bg-dark">
+                        <span class="fs-4 d-none d-sm-inline text-white p-3 py-3">Directorio</span>
+                        <ul class="nav nav-pills flex-column mt-4">
+                            <li class="nav-item py-2 py-sm-0">
+                                <a href="./headers.html" class="nav-link " >
+                                    <i class="fas fa-gauge"></i><span class="fs-4 ms-2 d-none d-sm-inline">Todos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2 py-sm-0" aria-current="page">
+                                <a href="./headers.html" class="nav-link text-white ">
+                                    <i class="fas fa-house-chimney"></i><span class="fs-4 ms-2 d-none d-sm-inline">Gerencia</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2 py-sm-0">
+                                <a href="" class="nav-link text-white active">
+                                    <i class="fas fa-tablet"></i><span class="fs-4 ms-2 d-none d-sm-inline">Unidades Regionales</span>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2 py-sm-0">
+                                <a href="" class="nav-link text-white">
+                                    <i class="fas fa-table-cells-large"></i><span class="fs-4 ms-2 d-none d-sm-inline">GNP</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--
+                    <div class="dropdown open p-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" 
+                            aria-expanded="false" >
+                            <i class="fa fa-user"></i><span class="ms-2">Rho</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <button class="dropdown-item" href="#">Settings</button>
+                            <button class="dropdown-item disabled" href="#">Profile</button>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- Contenido-->
+                <div class="container col-md-9">
+                    <h2 class="display-2">Gerencia de seguros</h2>
+                    <h4>Contactos de la gerencia de seguros</h4>
+                    <div class="container py-3">
+                        <table id="datatable" class="table table-striped table-hover display">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Coordinación</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Puesto</th>
+                                    <th scope="col">Extensión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>I - Tijuana</td>
+                                    <td>Walter Flores</td>
+                                    <td><a href="mailto:wfloresx@capufe.gob.mx">
+                                        wfloresx@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>4269</td>
+                                </tr>
+                                <tr>
+                                    <td>II - Hermosillo</td>
+                                    <td>Rosendo Armenta</td>
+                                    <td><a href="mailto:rarmenta@capufe.gob.mx">
+                                        tparedes@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>6441121104</td>
+                                </tr>
+                                <tr>
+                                    <td>III - Reynosa</td>
+                                    <td>Georgina Osorio</td>
+                                    <td><a href="mailto:gosorio@capufe.gob.mx">
+                                        gosorio@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>5621</td>
+                                </tr>
+                                <tr>
+                                    <td>IV - Saltillo</td>
+                                    <td>Karla Itzayana Zagal</td>
+                                    <td><a href="mailto:kizagal@capufe.gob.mx">
+                                        kizagal@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>5729</td>
+                                </tr>
+                                <tr>
+                                    <td>V - Mazatlán</td>
+                                    <td>Jorge Luis Naranjo</td>
+                                    <td><a href="mailto:jnaranjo@capufe.gob.mx">
+                                        jnaranjo@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>4476</td>
+                                </tr>
+                                <tr>
+                                    <td>VI - Querétaro</td>
+                                    <td>Hugo Pontón</td>
+                                    <td><a href="mailto:hponton@capufe.gob.mx">
+                                        hponton@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>4679</td>
+                                </tr>
+                                <tr>
+                                    <td>VI - Querétaro</td>
+                                    <td>Erika Bazaldúa</td>
+                                    <td><a href="mailto:embazalduav@capufe.gob.mx">
+                                        embazalduav@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>4673</td>
+                                </tr>
+                                <tr>
+                                    <td>VII - Cuernavaca</td>
+                                    <td>Juan Rodríguez</td>
+                                    <td><a href="mailto:jjrodrigueza@capufe.gob.mx">
+                                        jjrodrigueza@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>4954</td>
+                                </tr>
+                                <tr>
+                                    <td>VIII - Puebla</td>
+                                    <td>Xóchitl González</td>
+                                    <td><a href="mailto:xgonzalez@capufe.gob.mx">
+                                        xgonzalez@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>5071</td>
+                                </tr>
+                                <tr>
+                                    <td>IX - Veracruz</td>
+                                    <td>Carolina Álvarez</td>
+                                    <td><a href="mailto:cserrano@capufe.gob.mx">
+                                        cserrano@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>5578</td>
+                                </tr>
+                                <tr>
+                                    <td>X - Coatzacoalcos</td>
+                                    <td>Elizabeth Hernández</td>
+                                    <td><a href="mailto:elhernandez@capufe.gob.mx">
+                                        elhernandez@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>5270</td>
+                                </tr>
+                                <tr>
+                                    <td>XI - Edo México</td>
+                                    <td>Jesica Martínez</td>
+                                    <td><a href="mailto:jmartinezr@capufe.gob.mx">
+                                        jmartinezr@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>7315</td>
+                                </tr>
+                                <tr>
+                                    <td>XII - Villahermosa</td>
+                                    <td>Miguel Gijón Pérez</td>
+                                    <td><a href="mailto:magijonp@capufe.gob.mx">
+                                        magijonp@capufe.gob.mx
+                                    </a></td>
+                                    <td>Ejecutivo de seguro</td>
+                                    <td>9932501759</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+  
+</body>
+</html>
