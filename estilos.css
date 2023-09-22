@@ -1,0 +1,23 @@
+.producto{
+    margin-top: 30px;
+    width: 600px;
+}
+.fila{
+    display: inline-flex;
+}
+.img-producto{
+    width: 400px;
+}
+.datos{
+    margin-left: 30px;
+    display: block;
+}
+.titulo{
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.descripcion{
+    white-space: none;
+}
