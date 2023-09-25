@@ -28,7 +28,7 @@
     }
     //echo $mysqli->host_info . "\n";
 
-    $resultado = $mysqli->query("SELECT id, siniestro, FECHA_ACCIDENTE, UNIDAD_REGIONAL FROM siniestros ORDER BY id ASC");
+    $resultado = $mysqli->query("SELECT id, siniestro, fecha_accidente, unidad_regional FROM siniestros ORDER BY id ASC");
     ?>
     <header>
         <!-- Colocar Nav bar-->
@@ -107,9 +107,16 @@
                                         $fila = $resultado->fetch_assoc();
                                         echo "<tr>";
                                         echo "<td>" . $fila['siniestro'] . "</td>";
-                                        echo "<td>" . $fila['UNIDAD_REGIONAL'] . "</td>";
-                                        echo "<td>" . $fila['FECHA_ACCIDENTE'] . "</td>";
-                                        echo "<td>" . "<a class='btn btn-primary' href='#'>Ver completo</a>" . "</td>";
+                                        echo "<td>" . $fila['unidad_regional'] . "</td>";
+                                        echo "<td>" . $fila['fecha_accidente'] . "</td>";
+                                ?>
+                                        <td>
+                                            <a class='btn btn-primary' 
+                                                href="./versiniestro.php?id=<?php echo urlencode($fila['id']) ?> ">
+                                                Ver completo
+                                            </a>
+                                        </td>
+                                <?php
                                         echo "</tr>";
                                     }
                                 ?>
