@@ -1,10 +1,12 @@
 <?php
 
+    include "./headers.html";
+
     $mysqli = new mysqli("localhost", "root", "", "siniestros");
     if ($mysqli->connect_errno) {
         echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
-    echo $mysqli->host_info . "\n";
+    //echo $mysqli->host_info . "\n";
     
     $resultado = $mysqli->query("SELECT id, siniestro FROM siniestros ORDER BY id ASC");
 
@@ -25,9 +27,5 @@
     }
 
     echo "</table>";
-
-
-
-    //include "./headers.html"
 
 ?>
