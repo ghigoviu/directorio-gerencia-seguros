@@ -20,9 +20,18 @@
 </head>
 
 <body>
+    <?php
+
+    $mysqli = new mysqli("localhost", "root", "", "siniestros");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    //echo $mysqli->host_info . "\n";
+
+    $resultado = $mysqli->query("SELECT id, siniestro, FECHA_ACCIDENTE, UNIDAD_REGIONAL FROM siniestros ORDER BY id ASC");
+    ?>
     <header>
         <!-- Colocar Nav bar-->
-
     </header>
     <main>
         <div class="container-fluid">
@@ -38,7 +47,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-0" aria-current="page">
-                                <a href="" class="nav-link text-white active">
+                                <a href="" class="nav-link text-white">
                                     <i class="fas fa-house-chimney"></i><span
                                         class="fs-4 ms-2 d-none d-sm-inline">Gerencia</span>
                                 </a>
@@ -56,7 +65,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-0">
-                                <a href="siniestros.php" class="nav-link text-white">
+                                <a href="#" class="nav-link text-white active">
                                     <i class="fas fa-table-cells-large"></i>
                                     <span class="fs-4 ms-2 d-none d-sm-inline">Siniestros</span>
                                 </a>
@@ -85,69 +94,25 @@
                         <table id="datatable" class="table table-striped table-hover display">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Puesto</th>
-                                    <th scope="col">Extensión</th>
+                                    <th scope="col">Siniestro</th>
+                                    <th scope="col">UR</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Rogelio Galicia</td>
-                                    <td><a href="mailto:rgalicia@capufe.gob.mx">
-                                            rgalicia@capufe.gob.mx
-                                        </a></td>
-                                    <td>Gerente</td>
-                                    <td>2144</td>
-                                </tr>
-                                <tr>
-                                    <td>Tania Paredes</td>
-                                    <td><a href="mailto:tparedes@capufe.gob.mx">
-                                            tparedes@capufe.gob.mx
-                                        </a></td>
-                                    <td>Sub-gerente - patrimoniales</td>
-                                    <td>3129</td>
-                                </tr>
-                                <tr>
-                                    <td>Marlen Arroyo</td>
-                                    <td><a href="mailto:marroyo@capufe.gob.mx">
-                                            marroyo@capufe.gob.mx
-                                        </a></td>
-                                    <td>Supervisor</td>
-                                    <td>3136</td>
-                                </tr>
-                                <tr>
-                                    <td>Rogelio González Aldama</td>
-                                    <td><a href="mailto:gonzaleza@capufe.gob.mx">
-                                            gonzaleza@capufe.gob.mx
-                                        </a></td>
-                                    <td>Supervisor</td>
-                                    <td>3636</td>
-                                </tr>
-                                <tr>
-                                    <td>Romy Iván Pérez</td>
-                                    <td><a href="mailto:rperez@capufe.gob.mx">
-                                            rperez@capufe.gob.mx
-                                        </a></td>
-                                    <td>Super intendente</td>
-                                    <td>2244</td>
-                                </tr>
-                                <tr>
-                                    <td>Guadalupe Romero</td>
-                                    <td><a href="mailto:gromero@capufe.gob.mx">
-                                            gromero@capufe.gob.mx
-                                        </a></td>
-                                    <td>Técnico en Mtto.</td>
-                                    <td>2144</td>
-                                </tr>
-                                <tr>
-                                    <td>Rodrigo Cambray</td>
-                                    <td><a href="mailto:rrcambrayb@capufe.gob.mx">
-                                            rrcambrayb@capufe.gob.mx
-                                        </a></td>
-                                    <td>Coordinador A</td>
-                                    <td>2944</td>
-                                </tr>
+                                <?php 
+                                    for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
+                                        $resultado->data_seek($num_fila);
+                                        $fila = $resultado->fetch_assoc();
+                                        echo "<tr>";
+                                        echo "<td>" . $fila['siniestro'] . "</td>";
+                                        echo "<td>" . $fila['UNIDAD_REGIONAL'] . "</td>";
+                                        echo "<td>" . $fila['FECHA_ACCIDENTE'] . "</td>";
+                                        echo "<td>" . "<a class='btn btn-primary' href='#'>Ver completo</a>" . "</td>";
+                                        echo "</tr>";
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>

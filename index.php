@@ -17,6 +17,7 @@
     echo "<th>ID</th>";
     echo "<th>Siniestro</th>";
     echo "</tr>";
+    
     for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
         $resultado->data_seek($num_fila);
         $fila = $resultado->fetch_assoc();
