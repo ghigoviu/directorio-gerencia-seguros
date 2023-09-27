@@ -62,7 +62,7 @@
             DEDUCIBLE, SALVAMENTO, SUBROGACIONES, 
             RESERVA_RC, RESERVA_GM, RESERVA_TOTAL, 
             RECUPERACION, SINIESTRO_TOTAL 
-            FROM siniestros WHERE id = '$id'");
+            FROM siniestros WHERE siniestro = '$id'");
         $fila = $resultado->fetch_assoc();
     ?>
 
@@ -185,10 +185,10 @@
 
 
             </div>
-            <?php
-                mysqli_close($mysqli);
-            ?>
         </div>
+        <?php
+            mysqli_close($mysqli);
+        ?>
     </div>
     
 
