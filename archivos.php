@@ -6,32 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/661bf8cec7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css" type="text/css">
-    <script src="./assets/js/datatables.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <link href="./assets/js/datatables/datatables.css" rel="stylesheet" />
     <script src="./assets/js/jquery/jquery.js"></script>
-    <script src="./assets/js/datatables/datatables.css"></script>
-    
     <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
     <title>Directorio</title>
 </head>
 
 <body>
-    <?php
-
-    $mysqli = new mysqli("localhost", "root", "", "siniestros");
-    if ($mysqli->connect_errno) {
-        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    //echo $mysqli->host_info . "\n";
-
-    $resultado = $mysqli->query("SELECT id, siniestro, fecha_accidente, unidad_regional FROM siniestros ORDER BY id ASC");
-    ?>
     <header>
         <!-- Colocar Nav bar-->
+
     </header>
     <main>
         <div class="container-fluid">
@@ -47,7 +36,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-0" aria-current="page">
-                                <a href="" class="nav-link text-white">
+                                <a href="" class="nav-link text-white active">
                                     <i class="fas fa-house-chimney"></i><span
                                         class="fs-4 ms-2 d-none d-sm-inline">Gerencia</span>
                                 </a>
@@ -65,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-0">
-                                <a href="#" class="nav-link text-white active">
+                                <a href="siniestros.php" class="nav-link text-white">
                                     <i class="fas fa-table-cells-large"></i>
                                     <span class="fs-4 ms-2 d-none d-sm-inline">Siniestros</span>
                                 </a>
@@ -88,52 +77,70 @@
 
                 <!-- Contenido-->
                 <div class="container col-md-9">
-                    <h2 class="display-2">Gerencia de seguros</h2>
-                    <h4>Contactos de la gerencia de seguros</h4>
-                    <div class="container py-3">
-                        <table id="datatable" class="table table-striped table-hover display">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Siniestro</th>
-                                    <th scope="col">UR</th>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    for ($num_fila = $resultado->num_rows - 1; $num_fila >= 0; $num_fila--) {
-                                        $resultado->data_seek($num_fila);
-                                        $fila = $resultado->fetch_assoc();
-                                        echo "<tr>";
-                                        echo "<td>" . $fila['siniestro'] . "</td>";
-                                        echo "<td>" . $fila['unidad_regional'] . "</td>";
-                                        echo "<td>" . $fila['fecha_accidente'] . "</td>";
-                                ?>
-                                        <td>
-                                            <a class='btn btn-primary' 
-                                                href="./versiniestro.php?id=<?php echo urlencode($fila['id']) ?> ">
-                                                Ver completo
-                                            </a>
-                                        </td>
-                                <?php
-                                        echo "</tr>";
+                    <h2 class="display-2">Expedientes</h2>
+                    
+                    
+                    <?php 
+                        $directorio = "expedientes/listos/Roger";
+                        echo basename($directorio);
+
+                        $rutaListos = 'expedientes/listos/';
+                        if ($handler = opendir($directorio)) {
+                            while (false !== ($file = readdir($handler)) ) {
+                                echo "$file<br>";
+                                //echo "<br>El directorio es: ".$rutaListos.$file."<br>";
+                                /*
+                                try {
+                                    $archivoZip = $directorio.$file;
+
+                                    if ($file != '.' && $file != "..") {
+                                        //echo "Zip =" .$file;
+                                        echo "<br>El archivo es: ".$archivoZip;
+                                        $zipFile = new ZipArchive;
+                                        $comprimido= $zipFile->open($file);
+
+                                        if ($zipFile->open($archivoZip) === TRUE) {
+                                            $zipFile->extractTo($rutaListos); // Extraemos el contenido en el directorio actual
+                                            $zipFile->close();
+                                            echo 'ok';
+                                        } else {
+                                            echo 'failed';
+                                        }
+
                                     }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                } catch (Exception $e) {
+                                    echo 'Exception: ',  $e->getMessage(), "\n";
+                                } finally {
+                                    //echo "<br>Eso es todo";
+                                } */
+
+
+                            }
+                            closedir($handler);
+                        }
+                        /*
+
+                        $zip = new ZipArchive;
+                        // Declaramos el fichero a descomprimir, puede ser enviada desde un formulario
+                        $comprimido= $zip->open('./CUERNAVACA/mi_comprimido.zip');
+                        if ($comprimido=== TRUE) {
+                        // Declaramos la carpeta que almacenara ficheros descomprimidos
+                            $rutaListos = '../listos/';
+                            $zip->extractTo('../listos/');
+                            $zip->close();
+                        // Imprimimos si todo salio bien
+                            echo 'El fichero se descomprimio correctamente!';
+                        } else {
+                        // Si algo salio mal, se imprime esta seccion
+                            echo 'Error descomprimiendo el archivo zip';
+                        }
+                        */
+                    ?>
+
                 </div>
             </div>
         </div>
     </main>
-    <script>
-        $(document).ready( function () {
-            $('#datatable').DataTable();
-        } );
-    </script>
-    <?php
-        mysqli_close($mysqli);
-    ?>
+    
 </body>
 </html>

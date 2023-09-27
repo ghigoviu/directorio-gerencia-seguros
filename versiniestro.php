@@ -151,8 +151,8 @@
                         <label for="tipo">Tipo: <?php echo $fila['TIPO_ACCIDENTE'] ?>  </label>
                         <label for="causa">Causa: <?php echo $fila['CAUSA_ACCIDENTE'] ?>  </label>
                         <label for="daños">Daños al camino: <?php echo $fila['DANHOS_CAMINO'] ?>  </label>
-                        <label for="procedencia"><?php echo $fila['PROCEDENCIA'] ?>  </label>
                         <label for="status">Status: <?php echo $fila['ESTATUS'] ?>  </label>
+                        <label for="procedencia"><?php echo $fila['PROCEDENCIA'] ?>  </label>
                     </div>
 
                     <div class="col-2">
@@ -169,7 +169,6 @@
                         <label for="status">Color: <?php echo $fila['VH_AFECTADO_COLOR'] ?>  </label>
                         <label for="status">Modelo: <?php echo $fila['VH_AFECTADO_MODELO'] ?>  </label>
                         <label for="status">Nombre o RS: <?php echo $fila['VH_AFECTADO_NOMBRE'] ?>  </label>
-
                     </div>
                     
                     <div class="col-2">
