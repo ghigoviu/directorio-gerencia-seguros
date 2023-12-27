@@ -22,8 +22,8 @@
         //echo $mysqli->host_info . "\n";
         $id = $_GET['id'];
         $resultado = $mysqli->query("SELECT ID, 
-            SINIESTRO, 
-            POLIZA, RED, 
+            SINIESTRO,
+            POLIZA, RED,
             FECHA_ACCIDENTE, FECHA_REPORTE, FECHA_ARRIBO, 
             HORA_REPORTE, HORA_ARRIBO, 
             UNIDAD_REGIONAL, 

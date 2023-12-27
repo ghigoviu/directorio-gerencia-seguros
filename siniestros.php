@@ -28,7 +28,7 @@
     }
     //echo $mysqli->host_info . "\n";
 
-    $resultado = $mysqli->query("SELECT id, siniestro, fecha_accidente, unidad_regional FROM siniestros ORDER BY id ASC");
+    $resultado = $mysqli->query("SELECT id, siniestro, fecha_accidente, unidad_regional FROM siniestros WHERE siniestro order by siniestro asc LIMIT 10000");
     ?>
     <header>
         <!-- Colocar Nav bar-->

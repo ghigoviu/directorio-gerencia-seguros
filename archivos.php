@@ -79,12 +79,12 @@
                 <div class="container col-md-9">
                     <h2 class="display-2">Expedientes</h2>
                     
-                    
                     <?php 
-                        $directorio = "expedientes/listos/Roger";
+                        $directorio = "expedientes/listos/rodrigo";
                         echo basename($directorio);
 
                         $rutaListos = 'expedientes/listos/';
+                        
                         if ($handler = opendir($directorio)) {
                             while (false !== ($file = readdir($handler)) ) {
                                 echo "$file<br>";
@@ -102,7 +102,7 @@
                                         if ($zipFile->open($archivoZip) === TRUE) {
                                             $zipFile->extractTo($rutaListos); // Extraemos el contenido en el directorio actual
                                             $zipFile->close();
-                                            echo 'ok';
+                                            echo ' ok';
                                         } else {
                                             echo 'failed';
                                         }
@@ -114,27 +114,11 @@
                                     //echo "<br>Eso es todo";
                                 } */
 
-
                             }
                             closedir($handler);
                         }
-                        /*
-
-                        $zip = new ZipArchive;
-                        // Declaramos el fichero a descomprimir, puede ser enviada desde un formulario
-                        $comprimido= $zip->open('./CUERNAVACA/mi_comprimido.zip');
-                        if ($comprimido=== TRUE) {
-                        // Declaramos la carpeta que almacenara ficheros descomprimidos
-                            $rutaListos = '../listos/';
-                            $zip->extractTo('../listos/');
-                            $zip->close();
-                        // Imprimimos si todo salio bien
-                            echo 'El fichero se descomprimio correctamente!';
-                        } else {
-                        // Si algo salio mal, se imprime esta seccion
-                            echo 'Error descomprimiendo el archivo zip';
-                        }
-                        */
+                        
+                        
                     ?>
 
                 </div>
